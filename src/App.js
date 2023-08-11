@@ -2,10 +2,12 @@ import "./App.css";
 import BookList from "./components/BookList";
 import SearchBar from "./components/SearchBar";
 import { useState } from "react";
-// import WelcomeDialog from "./components/WelcomeDialog";
 
 function App() {
-    const [searchTerm, setSearchTerm] = useState(""); // Put "" to make sure the const are set as String
+    const [searchTerm, setSearchTerm] = useState("");
+    // Put "" to make sure the const are set as String, solved the
+    // problem with toLowerCase function below.
+
     const handleSearch = (e) => {
         setSearchTerm(e.target.value);
     };
@@ -81,7 +83,6 @@ function App() {
         <>
             <SearchBar searchTerm={searchTerm} handleSearch={handleSearch} />
             <BookList list={filterList} />
-            {/* <WelcomeDialog /> */}
         </>
     );
 }
